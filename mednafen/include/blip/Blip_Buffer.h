@@ -357,7 +357,7 @@ blip_inline void Blip_Synth<quality,range>::update( blip_time_t t, int amp )
 }
 
 blip_inline blip_eq_t::blip_eq_t( double t ) :
-if !defined(SF2000)
+#if !defined(SF2000)
 		treble( t ), rolloff_freq( 0 ), sample_rate( 44100 ), cutoff_freq( 0 ) { }
 #else
 		treble( t ), rolloff_freq( 0 ), sample_rate( 11025 ), cutoff_freq( 0 ) { }
