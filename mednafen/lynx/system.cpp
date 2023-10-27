@@ -225,7 +225,11 @@ void Emulate(EmulateSpecStruct *espec)
 
  if(espec->SoundFormatChanged)
  {
+#if !defined(SF2000)
   lynxie->mMikie->mikbuf.set_sample_rate(espec->SoundRate ? espec->SoundRate : 44100, 60);
+#else
+  lynxie->mMikie->mikbuf.set_sample_rate(espec->SoundRate ? espec->SoundRate : 11025, 60);
+#endif
   lynxie->mMikie->mikbuf.clock_rate((long int)(16000000 / 4));
   lynxie->mMikie->mikbuf.bass_freq(60);
   lynxie->mMikie->miksynth.volume(0.50);
